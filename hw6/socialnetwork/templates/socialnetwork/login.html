@@ -1,0 +1,31 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div class = "nav register-link">
+        <br>
+        <br>
+        <a href="{% url 'register' %}" id="id_register_link">
+            Register
+        </a>
+    </div>
+    
+{% endblock %}
+
+{% block content %}
+    <div id="id_page_name">
+        Login
+    </div>
+    <br>
+    <div class="login-table">
+        <form method="post" action="{% url 'login' %}">
+            <table class="login-box">
+                {{form}}
+            </table>
+            <br>
+            {% csrf_token %}
+            <div class="login-button">
+                <button type="submit" id="id_login_button">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
